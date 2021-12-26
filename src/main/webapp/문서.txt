@@ -1,0 +1,38 @@
+DB작업
+use ch20;
+
+create table board(
+num int not null primary key auto_increment,
+writer varchar(30) not null,
+subject varchar(50) not null,
+pw varchar(12) not null,
+regdate datetime,
+readcount int default 0,/* 계속 누적을 할꺼니깐 디폴트가 필요하다*/
+ref int not null,/*글 그룹*/
+re_step int not null,/*글 순서*/
+re_level int not null,/*레벨, 답글 깊이*/
+content text not null,
+ip varchar(20)
+);
+-------------------------------------------------------
+context.xml 파일 복사
+web.xml     내용만 복사
+-------------------------------------------------------
+back-end
+
+src/boardmysql.BoardDTO.java
+src/boardmysql.BoardDAO.java
+
+---------------------------------
+WebContent/boardmysql 폴더
+  writeForm.jsp ==> writePro.jsp 글쓰기/답글쓰기
+
+WebContent/imgs
+
+  list.jsp
+  
+  content.jsp 글 내용 보기----------글쓰기, 글수정, 글삭제, 답글쓰기, 리스트
+  
+  updateForm.jsp ==> updatePro.jsp
+  
+  deleteForm.jsp ==> deletePro.jsp

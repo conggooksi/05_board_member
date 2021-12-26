@@ -1,0 +1,35 @@
+c:\>sqlplus scott/tiger
+
+SQL> select * from tabs;
+
+테이블 만들기
+
+drop table board;
+
+create table board(
+num number(4) primary key,
+writer varchar2(30) not null,
+subject varchar2(50) not null,
+pw varchar2(12) not null,
+regdate date,
+readcount number(4) default 0,
+ref number(4) not null,--글 그룹
+re_step number(4) not null,--글 순서
+re_level number(4) not null,--레벨,답글깊이
+content varchar2(4000) not null,
+ip varchar2(20)
+);
+-----------------------------------
+
+일련번호
+drop sequence board_seq;
+
+create sequence board_seq;
+
+------------------------------------
+
+META-INF/context.xml 에 oracle추가
+WEB-INF/web.xml 에 oracle 추가
+src/boardoracle 패키지 만든다
+    BoardDTO.java 복사
+    BoardDAO.java 복사

@@ -1,0 +1,33 @@
+DB는 Mysql 사용
+
+use ch20;
+
+drop table member;
+
+create table member(
+id varchar(20) not null primary key,
+pw varchar(12) not null,
+name varchar(30) not null,
+email varchar(40),
+tel varchar(14),
+zipcode varchar(7),
+addr varchar(60),
+addr2 varchar(20),
+regdate date
+);
+
+---------------------------------
+
+src/member.MemberDTO.java
+src/member.MemberDAO.java
+
+WebContent/member
+  confirmID.jsp
+  inputForm.jsp ==> inputPro.jsp(dao메서드 호출)
+  
+  loginForm.jsp 대신
+  main.jsp => loginPro.jsp
+  logout.jsp
+  
+  modify.jsp ==> updateForm.jsp ==> updatePro.jsp
+             ==> deleteForm.jsp ==> deletePro.jsp
